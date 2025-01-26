@@ -1,30 +1,36 @@
-const removeFromArray = function(list, remove) {
+ const removeFromArray = function(list, ...rest) {
 
-let i = 0
-let x = 0
+        let i = 0
+        let x = 0
+        
+        let remove = Array.from(rest);
+        let firstArray = list;
 
-let = removeArray = Array.from(remove);
-for(let x in removeArray){
+        //console.log(remove);
+        //console.log(firstArray)
 
-for (let i in list){
-    if(removeArray[x] === list[i]){
-        list.splice(i, 1);
-        i++
-    }
-    else{i++};
-}
-x++;
-}
+        for(i in remove){
 
+            x = 0;
 
-console.log(list);
-console.log(remove);
-console.log(removeArray);
-return list
+            for(x in firstArray){
 
+                while(remove[i] === firstArray[x]){
+
+                    firstArray.splice(x, 1);
+
+                    
+                }
+                x++
+            }
+            i++;
+        }
+        console.log(firstArray)
+        return firstArray; 
+        
 };
 
-removeFromArray([1, 2, 3, 4], 3, 2);
+removeFromArray([1, 2, 2, 3], 2);
 
 // Do not edit below this line
-//module.exports = removeFromArray;
+module.exports = removeFromArray;
